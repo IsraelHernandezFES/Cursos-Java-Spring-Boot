@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -9,5 +9,11 @@
 </head>
 <body>
     <h1> Nuestro CV</h1>
+    <p th:text="'hola, ' + ${name} + ' ! '"></p>
+    <p>Datos de la Persona: </p>
+    <p th:text="${persona.firstName}"></p>
+    <p th:text="${persona.lastName}"></p>
+    <p th:text="${persona.job}"></p>
+    <p th:if="${persona.firstName.length > 5}"style="color: green;">Tienes un nombre largo</p>
 </body>
 </html>

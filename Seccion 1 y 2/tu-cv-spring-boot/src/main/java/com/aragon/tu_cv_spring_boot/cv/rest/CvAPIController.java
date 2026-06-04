@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CvAPIController {
     @GetMapping ("/person")
     public Person getPerson (){
-        return new Person("israel", "Hernandez " , "DeveloperJava"); //aqui recibimos un json en lugar de html 
+        return new Person("israel", "Hernandez " , "DeveloperJava"); //aqui recibimos un json en lugar de html
     }
 
 }

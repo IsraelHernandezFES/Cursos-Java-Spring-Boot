@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Nuestras Habilidades</h1>
+    <p th:if="${habilidades.isEmpty()}">La Lista esta vacia</p>
+
+    <ul th:if="${!habilidades.isEmpty()}">
+        <!-- 'hab' es la variable temporal que representa cada elemento de la lista 'habilidades' -->
+        <li th:each="hab : ${habilidades}" th:text="${hab}"></li>    </ul>
+<!--    th:each para iterar sobre la lista y generar los elementos automáticamente:-->
+</body>
+</html>

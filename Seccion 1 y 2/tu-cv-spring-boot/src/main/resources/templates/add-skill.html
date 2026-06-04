@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:type="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Agregar Nueva Habilidad</h1>
+<!--    Usamos @ para trabajar con rutas y $ para mandar objetos-->
+    <form th:action = "@{/skills/add" th:object="${skill}" method="post">
+        <label th:for="nombre">Nombre</label>
+<!--        para acceder a los atributos del objeto es thfield y con *{}-->
+        <input type="text" th:field="*{name}">
+<!--        como estamos trabajando con el method Post ahora el boton es de tipo submit-->
+        <button type="submit">Guardar</button>
+    </form>
+</body>
+</html>
