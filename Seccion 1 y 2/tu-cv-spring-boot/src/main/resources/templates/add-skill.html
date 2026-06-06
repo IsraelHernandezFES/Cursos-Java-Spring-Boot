@@ -7,11 +7,14 @@
 <body>
     <h1>Agregar Nueva Habilidad</h1>
 <!--    Usamos @ para trabajar con rutas y $ para mandar objetos-->
-    <form th:action = "@{/skills/add" th:object="${skill}" method="post">
+        <form th:action = "@{/skills/add}" th:object="${skill}" method="post">
         <label th:for="nombre">Nombre</label>
 <!--        para acceder a los atributos del objeto es thfield y con *{}-->
         <input type="text" th:field="*{name}">
-<!--        como estamos trabajando con el method Post ahora el boton es de tipo submit-->
+
+            <label th:for="level">Nivel</label>
+        <input type="text" th:field="*{level}">
+
         <button type="submit">Guardar</button>
     </form>
 </body>
