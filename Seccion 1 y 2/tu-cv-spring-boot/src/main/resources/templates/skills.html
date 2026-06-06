@@ -3,14 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
+
+
 <body>
 <h1>Nuestras Habilidades</h1>
     <p th:if="${skills.isEmpty()}">La Lista esta vacia</p>
 
     <ul th:if="${!skills.isEmpty()}">
         <!-- 'hab' es la variable temporal que representa cada elemento de la lista 'habilidades' -->
-        <li th:each="skill : ${skills}" th:text="'Habilidad: ' + ${skill.name} + ' Nivel: ' + ${skill.level}">Skill</li>
+        <!--  stat es el objeto de iteracion thymleaf-->
+        <li th:each="skill , stat : ${skills}" >
+
+            <span th:text="'Habilidad: ' + ${skill.name} + ' Nivel: ' + ${skill.level}"></span>
+            <a th:href="@{'/skills/id/' + ${stat.index}}">Ver detalle</a>
+            <span th:text="${stat.count}"></span>
+            <span th:text="${stat.size}"></span>
+            <span th:if="${stat.first}">-Primera-</span>
+            <span th:if="${stat.last}">-Ultima-</span>
+            <span th:if="${stat.even}">-Par-</span>
+            <span th:if="${stat.odd}">-Impar-</span>
+            </span>
+        </li>
     </ul>
 <!--    th:each para iterar sobre la lista y generar los elementos automáticamente:-->
 

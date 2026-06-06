@@ -47,7 +47,7 @@ public class SkillsController {
 
     //@PathVariable se utiliza para extrar valores que vienen diractamente en la URL
     //Ej.  localhost:8080/skills/0
-    @GetMapping("/{index}") //@GetMapping obligatoriamente recibe un valor
+    @GetMapping("/id/{index}") //@GetMapping obligatoriamente recibe un valor
     public String showSkillDetail (@PathVariable int index , Model model){
         if (index >= 0 && index < skills.size()){
             Skill skill = skills.get(index);
@@ -61,7 +61,7 @@ public class SkillsController {
 
     //podemos trabajar con 2 filtros
     //Ej. http://localhost:8080/skills/Canto/Bajo
-    @GetMapping("/{name}/{level}") //@GetMapping obligatoriamente recibe 2 valores
+    @GetMapping("/filter/{name}/{level}") //@GetMapping obligatoriamente recibe 2 valores
     public String showFilteredSkill (@PathVariable String name , @PathVariable String level , Model model){
 
         List<Skill> skillsFilter = skills.stream()
@@ -74,7 +74,6 @@ public class SkillsController {
 
     }
 
-    //solucionar rutas invalidas en el filtro
 
 
     //abrir formulario para agregar nueva skills
