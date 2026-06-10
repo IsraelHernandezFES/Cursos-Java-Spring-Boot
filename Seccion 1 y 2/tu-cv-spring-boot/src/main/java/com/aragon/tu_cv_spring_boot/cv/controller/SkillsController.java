@@ -6,6 +6,7 @@ import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.sql.ClientInfoStatus;
 import java.util.ArrayList;
@@ -61,20 +62,47 @@ public class SkillsController {
 
     //podemos trabajar con 2 filtros
     //Ej. http://localhost:8080/skills/Canto/Bajo
-    @GetMapping("/filter/{name}/{level}") //@GetMapping obligatoriamente recibe 2 valores
-    public String showFilteredSkill (@PathVariable String name , @PathVariable String level , Model model){
+    @GetMapping("/name/{name}")
+    public String showFilteredSkill (@PathVariable String name , Model model){
 
         List<Skill> skillsFilter = skills.stream()
-                .filter(skill -> skill.getName().equalsIgnoreCase(name)&& skill.getLevel().equalsIgnoreCase(level))
-                .toList(); //igual el filtro lo trabajamos con 2 valores
+                .filter(skill -> skill.getName().equalsIgnoreCase(name))
+                .toList();
+
+        if (skillsFilter.isEmpty()){
+
+            model.addAttribute("filterMessage", "No se encontro resultado para:" + name);
+
+            return "forward:/skills"; //mantiene la logica y reutiliza la url sin recargar
+//          return "redirect:/skills";  recarga de nuevo la pagina
+        }
 
         model.addAttribute("skills", skillsFilter);
-        model.addAttribute("filterMessage", "Filtro" + name + "--" + level);
+        model.addAttribute("filterMessage", "Filtro " +  "-- " + name );
         return "skills"; //trabajamos dentro de la misma vista
 
     }
 
-
+//    @GetMapping("/name/{name}")
+//    public String showFilteredSkill (@PathVariable String name , RedirectAttributes redirectAttributes){
+//
+//        List<Skill> skillsFilter = skills.stream()
+//                .filter(skill -> skill.getName().equalsIgnoreCase(name))
+//                .toList();
+//
+//        if (skillsFilter.isEmpty()){
+//
+//            redirectAttributes.addFlashAttribute("filterMessage", "No se encontro resultado para:" + name);
+//
+//             return "redirect:/skills?filter=" + name;
+//        }
+//
+//        redirectAttributes.addFlashAttribute("skills", skillsFilter);
+//        redirectAttributes.addFlashAttribute("filterMessage", "Filtro " +  "-- " + name );
+//        return "redirect:/skills?filter=" + name; //trabajamos dentro de la misma vista
+//
+//    }
+//
 
     //abrir formulario para agregar nueva skills
     @GetMapping ("/new")

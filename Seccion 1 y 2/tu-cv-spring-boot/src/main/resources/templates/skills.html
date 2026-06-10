@@ -9,7 +9,7 @@
 
 <body>
 <h1>Nuestras Habilidades</h1>
-    <p th:if="${skills.isEmpty()}">La Lista esta vacia</p>
+    <p th:if="${skills.isEmpty()}">No se encuentran Habilidades</p>
 
     <ul th:if="${!skills.isEmpty()}">
         <!-- 'hab' es la variable temporal que representa cada elemento de la lista 'habilidades' -->
@@ -27,6 +27,9 @@
             </span>
         </li>
     </ul>
+<!--manda el anuncio del filtro si no se encontro la busqueda-->
+    <p th:if="${filterMessage}" th:text="${filterMessage}"></p>
+
 <!--    th:each para iterar sobre la lista y generar los elementos automáticamente:-->
 
 <!--    vamos hacer @RequestParam usando un form de tipo get para traer los valores filtrados-->

@@ -9,11 +9,12 @@
 </head>
 <body>
     <h1> Nuestro CV</h1>
-    <p th:text="'hola, ' + ${name} + ' ! '"></p>
+    <p th:text="'hola, ' + ${property} + ' ! '"></p>
     <p>Datos de la Persona: </p>
-    <p th:text="${persona.firstName}"></p>
-    <p th:text="${persona.lastName}"></p>
-    <p th:text="${persona.job}"></p>
-    <p th:if="${persona.firstName.length > 5}"style="color: green;">Tienes un nombre largo</p>
+<!--    <p th:text="${persona.firstName}"></p>-->
+<!--    <p th:text="${persona.lastName}"></p>-->
+<!--    <p th:text="${persona.job}"></p>-->
+<!--    <p th:if="${persona.firstName.length > 5}"style="color: green;">Tienes un nombre largo</p>-->
+<p th:text=" 'Valor en application.property = ' + ${property}"></p>
 </body>
 </html>
