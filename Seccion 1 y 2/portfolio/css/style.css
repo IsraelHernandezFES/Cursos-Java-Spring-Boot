@@ -1,0 +1,78 @@
+/* root es la seudo clase del doc que apunta a la raiz del html */
+:root{
+    --color-primario: #ff0000;
+    --color-secundario: #2ecc71;  
+
+
+}
+
+html{
+    height: 100%;
+    box-sizing: border-box;
+}
+
+*,*::before,*::after{
+    box-sizing: inherit;
+}
+
+body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    height: 100%;
+   
+}
+
+/* se llama igual que la etiqueta */
+/* se queda con el ultimo valor */
+p{
+    font-family: Helvetica;
+    color: green;
+    font-size: 20px;
+    font-size: 25px;
+}
+
+h2{
+    font-family: Helvetica;
+    color: red;
+    font-size: 30px;
+}
+
+/* Clase para el párrafo específico lleva un punto al inicio  */
+.parrafo1{
+    font-family: Helvetica;
+    color: blue;
+    font-size: 20px;
+}
+/* ID para el titulo específico lleva un numeral al inicio  */
+#id-titulo-1{
+    font-family: Helvetica;
+    color: orange;
+    font-size: 30px;
+}
+
+/* clases dentro del div */
+.square{
+    background-color: var(--color-primario) ;
+    width: 50%;
+    height: 50%;
+    padding: 50px;
+  
+}
+
+.square2{
+    margin-top: 10px;
+    background-color: var(--color-secundario);
+    width: 50%;
+    height: 50%;
+    box-sizing: border-box; 
+
+}
+
+.resaltado{
+    background-color: yellow;
+    font-weight: bold;
+}

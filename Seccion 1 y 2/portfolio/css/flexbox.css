@@ -1,0 +1,32 @@
+
+
+body{
+    background-color: #9ad498;
+}
+
+.square{
+    background-color: #d21d1d;
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+
+/* flexbox esta pensando para interactuar con un conjunto de elementos */
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+
+}
+
+.container{
+    display: flex;
+    /* se puede en columna o fila */
+    flex-direction: row-reverse;
+    /* flex-direction: column; */
+    background-color: #1a14b5;
+    /* gap genera espacio entre los elementos */
+    gap: 10px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}

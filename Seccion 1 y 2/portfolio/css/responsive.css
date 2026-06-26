@@ -1,0 +1,36 @@
+.flex-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between; 
+}
+
+.box {
+    background-color: #ff9c9c;
+    padding: 20px;
+    flex: 1;
+    font-size: 2rem;
+    text-align: center;
+
+}
+
+@media (max-width: 600px) {
+    .flex-container {
+        flex-direction: column;
+    }
+    .box {
+        font-size: 1rem;
+    }
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+}
+
+.item {
+    background-color: #9cff9c;
+    padding: 20px;
+    font-size: 2rem;
+    text-align: center;
+}
