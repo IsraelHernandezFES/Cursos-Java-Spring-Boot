@@ -84,14 +84,14 @@ public class SkillRepositoryImpl implements ISkillRepository{
 
     @Override
     public void deleteById(Long id) {
-        String sql = "Delete from skills Where id = ?";
+        String sql = "Delete From skills Where id = ?";
         jdbcTemplate.update(sql,id);
 
     }
 
     @Override
     public List<Skill> findByPersonalInfoId(Long personalInfdId) {
-         String sql = "Select * from skills Where personal_info_id = ?";
+         String sql = "Select * From skills Where personal_info_id = ?";
 
         return jdbcTemplate.query(sql, skillRowMapper , personalInfdId);
     }
