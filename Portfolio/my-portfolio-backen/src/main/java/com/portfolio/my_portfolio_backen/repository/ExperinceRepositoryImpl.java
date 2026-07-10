@@ -40,7 +40,7 @@ public class ExperinceRepositoryImpl implements IExperienceRepository{
     @Override
     public Experience save(Experience experience) {
         if (experience.getId()==null){
-            String sql = "Inser Into experiences (job_title , company_name  , star_date , end_date , description , personal_info_id)" +
+            String sql = "Insert Into experiences (job_title , company_name  , start_date , end_date , description , personal_info_id)" +
                     "VALUES ( ? , ? , ? , ? , ? , ?)";
 
             KeyHolder keyHolder = new GeneratedKeyHolder();

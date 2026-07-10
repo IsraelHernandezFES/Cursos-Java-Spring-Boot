@@ -59,7 +59,7 @@ public class EducationRepositoryImpl implements IEducationRepository{
             education.setId(Objects.requireNonNull(keyHolder.getKey()).longValue()); //si retorna un id nulo la aplicacion se detiene
 
         }else{
-            String sql ="UPDATE educations SET degree=? , institution=? , star_date=? , end_date= ? , description=? , personal_info_id = ? Where id = ?";
+            String sql ="UPDATE educations SET degree=? , institution=? , start_date=? , end_date= ? , description=? , personal_info_id = ? Where id = ?";
 
             jdbcTemplate.update(sql,
 
