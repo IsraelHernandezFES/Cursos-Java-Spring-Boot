@@ -1,6 +1,7 @@
 package com.portfolio.my_portfolio_backen.service;
 
 import com.portfolio.my_portfolio_backen.model.PersonalInfo;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
