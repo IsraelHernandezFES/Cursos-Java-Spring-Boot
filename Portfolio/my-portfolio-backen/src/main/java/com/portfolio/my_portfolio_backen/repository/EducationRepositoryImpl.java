@@ -77,7 +77,7 @@ public class EducationRepositoryImpl implements IEducationRepository{
 
     @Override
     public Optional<Education> findById(Long id) {
-        String sql = "Select * From education Where id = ?";
+        String sql = "Select * From educations Where id = ?";
         try{
             return Optional.ofNullable(jdbcTemplate.queryForObject(sql, educationRowMapper,id));
         } catch (EmptyResultDataAccessException e ){

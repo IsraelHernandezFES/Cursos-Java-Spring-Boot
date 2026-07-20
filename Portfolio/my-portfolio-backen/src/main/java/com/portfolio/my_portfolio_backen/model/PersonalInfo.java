@@ -4,9 +4,12 @@ package com.portfolio.my_portfolio_backen.model;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Singular;
+import org.hibernate.validator.constraints.URL;
 
 @Data
 @AllArgsConstructor
@@ -16,8 +19,11 @@ public class PersonalInfo {
     private Long id;  // llave primaria
 
     @NotBlank (message = "El nombre no puede estar vacio") //validacion para que el nombre no sea vacio
+    @Size (min = 2 , max = 50 , message = "El nomnbre debe de tener entre 2 y 50 caracteres")
     private String firstName;
+
     @NotBlank (message = "El apellido no puede estar vacio")
+    @Size (min = 2 , max = 50 , message = "El apellido debe de tener entre 2 y 50 caracteres")
     private String lastName;
     @NotBlank (message = "El titulo no puede estar vacio")
     private String title;
@@ -31,9 +37,9 @@ public class PersonalInfo {
     private String email;
     @NotBlank (message = "el telefono no puede estar vaio")
     private String phone;
-    @NotBlank (message = "Necesitas un link de Linkedin")
+    @URL(message = "Necesitas un link de Linkedin")
     private String linkedinUrl;
-    @NotBlank (message = "Necesitas un link de github")
+    @URL (message = "Necesitas un link de github")
     private String githubUrl;
 
 }
