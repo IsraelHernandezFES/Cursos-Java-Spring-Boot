@@ -5,14 +5,21 @@ import com.portfolio.my_portfolio_backen.exception.ValidationException;
 import com.portfolio.my_portfolio_backen.model.PersonalInfo;
 import com.portfolio.my_portfolio_backen.repository.IPersonalInfoRepository;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
+
+import javax.swing.text.ParagraphView;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @DirtiesContext (classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
+//@ExtendWith(MockitoExtension.class) //mokito es un frameword para pruebas unitarias que hace objetos simulados
 public class personalInfoServiceTest {
 
     @Autowired
@@ -20,6 +27,16 @@ public class personalInfoServiceTest {
 
     @Autowired
     private IPersonalInfoRepository personalInfoRepository;
+
+
+//    para pruebas unitarias podemos hacer objetos simulados atravez de Mockito
+
+//    @InjectMocks
+//    private IPersonalInfoService personalInfoService;
+//
+//    @Mock
+//    private IPersonalInfoRepository personalInfoRepository;
+
 
     @Test
     void testSaveValidPersonalInfo (){
